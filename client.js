@@ -33,10 +33,11 @@ reviewscontainer.addEventListener("touchstart", function(event) {
 });
 reviewscontainer.addEventListener("touchend", function(event) {
   swipeEnd = parseInt(event.clientX);
-  swipeEnd > swipeStart ? count-- : count++;
+  swipeEnd >= swipeStart ? count-- : count++;
   if(count === 4) {
     count = 3;
-  }else if (count === -1) {
+  }
+  if (count === -1) {
     count = 0;
   }
   Array.from(slide.children).forEach(elem => {
